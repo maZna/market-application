@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SizedBox } from "../../styles/index";
 
+/**@component */
 export const PictureFrame = styled.div`
   padding: 15px;
   margin: 5px 0 5px 0;
@@ -8,12 +9,14 @@ export const PictureFrame = styled.div`
   border-radius: 10px;
 `;
 
+/**@component */
 export const PictureTemplate = styled.div`
   width: 97px;
   height: 100px;
   background-color: #c4c4c4;
 `;
 
+/**@component */
 export const ProductTitle = styled.div`
   color: #191919;
   margin: 2px 0 2px 0;
@@ -33,6 +36,10 @@ export const AddProductButton = styled.button`
   transition: 0.2s;
   &:hover {
     background-color: #1f6880;
+  }
+  &.added {
+    color: ${(props) => props.theme.secondary};
+    background-color: #c4c4c4;
   }
 `;
 

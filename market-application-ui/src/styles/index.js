@@ -52,6 +52,7 @@ export const ModalBox = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 600;
+  min-width: 200px;
   width: ${(props) => props.width}
   border: 2px solid ${(props) => props.theme.main};
   border-radius: 5px;
@@ -59,7 +60,7 @@ export const ModalBox = styled.div`
   padding: 10px;
   main {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
   header {
     font-weight: 700;

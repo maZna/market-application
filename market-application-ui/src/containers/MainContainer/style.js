@@ -15,6 +15,7 @@ export const NAVBAR_HEIGHT = "50px";
 export const BODY_TOP_MARGIN = "80px";
 export const MAIN_TOP_MARGIN = "72px";
 
+/**@component */
 export const LeftSideBar = styled.div`
   position: absolute;
   top: 0;
@@ -29,6 +30,7 @@ export const LeftSideBar = styled.div`
   }
 `;
 
+/**@component */
 export const RightSideBar = styled.div`
   position: absolute;
   top: 0;
@@ -47,12 +49,14 @@ export const MAIN_LEFT_MARGIN = LEFT_SIDE_BAR_MARGIN + LEFT_SIDE_BAR_WIDTH + 1;
 export const MAIN_RIGHT_MARGIN =
   RIGHT_SIDE_BAR_MARGIN + RIGHT_SIDE_BAR_WIDTH + 1;
 
+/**@component */
 export const Main = styled.div`
   margin-top: ${MAIN_TOP_MARGIN};
   margin-left: ${MAIN_LEFT_MARGIN + VALUE_STANDARD};
   margin-right: ${MAIN_RIGHT_MARGIN + VALUE_STANDARD};
   height: 100%;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   @media (max-width: ${MOBILE_THRESHOLD}) {
     margin: 0;
     position: absolute;
@@ -70,6 +74,7 @@ export const Main = styled.div`
   }
 `;
 
+/**@component */
 export const NavBar = styled.div`
   position: absolute;
   top: 0;
@@ -88,6 +93,7 @@ export const NavBar = styled.div`
   }
 `;
 
+/**@component */
 export const Total = styled.div`
   background-color: #117594;
   padding: 0;
@@ -104,10 +110,12 @@ export const Total = styled.div`
   margin-right: ${RIGHT_SIDE_BAR_MARGIN + VALUE_STANDARD};
 `;
 
+/**@component */
 export const NavPriceTag = styled(PriceTag)`
   color: white;
 `;
 
+/**@component */
 export const SmallDeviceView = styled.div`
   display: none;
   @media (max-width: ${RIGHT_SIDEBAR_DISPLAY_THRESHOLD}) {
@@ -116,6 +124,7 @@ export const SmallDeviceView = styled.div`
   }
 `;
 
+/**@component */
 export const MobileView = styled.div`
   display: none;
   @media (max-width: ${SMALL_DISPLAY_THRESHOLD}) {
@@ -124,6 +133,7 @@ export const MobileView = styled.div`
   }
 `;
 
+/**@component */
 export const FilterButton = styled(PageButton)`
   background-color: ${(props) => props.theme.secondary};
   &:hover {
@@ -131,6 +141,7 @@ export const FilterButton = styled(PageButton)`
   }
 `;
 
+/**@component */
 export const Footer = styled.div`
   color: ${(props) => props.theme.main};
   position: relative;

@@ -18,7 +18,6 @@ export function* itemSagaHandler(params) {
   };
 
   try {
-    console.log("Calling items api");
     if (params.brandFilters.length > 0) {
       for (let brand of params.brandFilters)
         reqUrl = reqUrl.concat(`&manufacturer=${brand}`);
@@ -49,7 +48,6 @@ export function* companySagaHandler() {
     method: "GET",
   };
   try {
-    console.log("Calling company api");
     const res = yield call(request, reqUrl, options);
     yield put(loadCompaniesSuccess(res.data));
   } catch (err) {
@@ -63,7 +61,6 @@ export function* tagSagaHandler() {
     method: "GET",
   };
   try {
-    console.log("Calling tag api");
     const res = yield call(request, reqUrl, options);
     yield put(loadTagsSuccess(res.data));
   } catch (err) {

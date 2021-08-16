@@ -1,44 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import PropTypes from "prop-types";
 import CartItem from "../CartItem";
-import { PriceTag, CustomizedScrollBox } from "../../styles/index";
 import { CART_ACTIONS } from "../../utils/enums";
+import { CartCard, CartInfo, Total, TotalContainer } from "./styles";
+import { PriceTag } from "../../styles/index";
 
-const CartCard = styled(CustomizedScrollBox)`
-  border: ${(props) => (props.mobile ? 0 : 8)}px solid
-    ${(props) => props.theme.main};
-  border-radius: 2px;
-  background-color: white;
-  padding: 15px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: inherit;
-  height: auto;
-  max-height: 300px;
-  overflow: auto;
-  box-shadow: 5px 5px 8px -12px #000000;
-`;
-
-const TotalContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const Total = styled.div`
-  padding: 12px 15px 12px 15px;
-  margin-top: 10px;
-  color: ${(props) => props.theme.main};
-  border: 2px solid ${(props) => props.theme.main};
-  border-radius: 2px;
-  display: inline-block;
-  background: none;
-`;
-
-const CartInfo = styled(PriceTag)`
-  display: flex;
-  justify-content: center;
-`;
-
+/**
+ * This component represents the Cart view
+ */
 function Cart({ cartItems, updateCart, cartTotal, mobile }) {
   const addToCart = (id) => updateCart({ id }, CART_ACTIONS.ADD);
   const removeFromCart = (id) => updateCart({ id }, CART_ACTIONS.REMOVE);
@@ -70,5 +39,18 @@ function Cart({ cartItems, updateCart, cartTotal, mobile }) {
     </div>
   );
 }
+
+Cart.propTypes = {
+  /** List of items present in cart */
+  cartItems: PropTypes.array,
+  /** Function to add/remove cart items */
+  updateCart: PropTypes.func,
+  /** Total cost of items in cart*/
+  cartTotal: PropTypes.number,
+  /** Whether it should be a mobile/desktop view*/
+  mobile: PropTypes.bool,
+};
+
+
 
 export default Cart;

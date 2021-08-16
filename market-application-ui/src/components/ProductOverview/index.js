@@ -1,37 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import PropTypes from "prop-types";
 import { PRODUCT_CATEGORIES } from "../../utils/enums";
 import Card from "../Card";
 import ProductList from "../ProductList";
+import { ProductsTitle, Tab } from "./styles";
 
-const ProductsTitle = styled.div`
-  color: #6f6f6f;
-  font-size: 20px;
-`;
-
-const Tab = styled.div`
-  button {
-    background-color: ${(props) => props.theme.secondary};
-    color: ${(props) => props.theme.main};
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 8px 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    border-radius: 3px;
-    transition: 0.2s;
-  }
-  button:hover {
-    background-color: #ddd;
-  }
-  button.active {
-    color: white;
-    background-color: ${(props) => props.theme.main};
-  }
-`;
-
+/**
+ * This component controls the display of product items and their types 
+ */
 function ProductOverview({
   productList,
   productCategory,
@@ -66,5 +42,18 @@ function ProductOverview({
     </div>
   );
 }
+
+ProductOverview.propTypes = {
+  /** List of available product items*/
+  productList: PropTypes.array,
+  /** Category of products (shirt/mug)*/
+  productCategory: PropTypes.string,
+  /** Switch category to shirts*/
+  setCategoryAsShirts: PropTypes.func,
+  /** Switch category to mugs*/
+  setCategoryAsMugs: PropTypes.func,
+  /** Function to update cart items*/
+  updateCart: PropTypes.func,
+};
 
 export default ProductOverview;

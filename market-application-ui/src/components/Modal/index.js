@@ -1,15 +1,11 @@
 import React from "react";
-import { ModalBox, Backdrop, PageButton } from "../../styles/index";
-import styled from "styled-components";
+import PropTypes from "prop-types";
+import { ModalBox, Backdrop } from "../../styles/index";
+import { ModalButton } from "./styles";
 
-const ModalButton = styled(PageButton)`
-  background-color: ${(props) => props.theme.main};
-  color: white;
-  &:hover {
-    background-color: ${(props) => props.theme.main};
-  }
-`;
-
+/**
+ * The default modal component for the application
+ */
 function Modal({ open, header, children, toggle }) {
   if (open)
     return (
@@ -27,5 +23,16 @@ function Modal({ open, header, children, toggle }) {
     );
   return null;
 }
+
+Modal.propTypes = {
+  /** Property to determine whether modal is visible or not*/
+  open: PropTypes.bool,
+  /** Header for modal*/
+  header: PropTypes.string,
+  /** Children passed to modal if any*/
+  children: PropTypes.any,
+  /** Function to toggle modal view*/
+  toggle: PropTypes.func,
+};
 
 export default Modal;

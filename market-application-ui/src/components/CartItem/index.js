@@ -1,28 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import { PriceTag, SizedBox, PageButton } from "../../styles/index";
+import PropTypes from "prop-types";
+import { CartButton, CartButtonGroup, Divider, ItemBox } from "./styles";
+import { PriceTag, SizedBox } from "../../styles/index";
 
-const ItemBox = styled.div`
-  margin: 2px;
-  padding: 2px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const CartButton = styled(PageButton)`
-  padding: 6px 12px;
-  border-radius: 0px;
-`;
-
-const Divider = styled.hr`
-  border: 1px solid #f4f4f4;
-`;
-
-const CartButtonGroup = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
+/**
+ * This represents a single cart item view
+ */
 function CartItem({ price, title, quantity, id, addToCart, removeFromCart }) {
   return (
     <>
@@ -50,5 +33,20 @@ function CartItem({ price, title, quantity, id, addToCart, removeFromCart }) {
     </>
   );
 }
+
+CartItem.propTypes = {
+  /** Price of item */
+  price: PropTypes.number,
+  /** Title of item*/
+  title: PropTypes.string,
+  /** Number of items in cart */
+  quantity: PropTypes.number,
+  /** Id of item */
+  id: PropTypes.string,
+  /** Function to add more of this item in cart */
+  addToCart: PropTypes.func,
+  /** Function to remove number of this item in cart */
+  removeFromCart: PropTypes.func,
+};
 
 export default CartItem;

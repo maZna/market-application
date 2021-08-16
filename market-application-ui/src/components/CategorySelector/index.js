@@ -1,32 +1,14 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { FilterTag } from "../../styles/index";
 import Card from "../Card";
-import styled from "styled-components";
-import {
-  SizedBox,
-  HorizontallyStraightBox,
-  CustomizedScrollBox,
-} from "../../styles/index";
+import { FixedHeightBox, StyledInput } from "./styles";
+import { SizedBox, HorizontallyStraightBox } from "../../styles/index";
+import CustomCheckBox from "../CustomCheckBox";
 
-const FixedHeightBox = styled(CustomizedScrollBox)`
-  max-height: 100px;
-  min-height: 100px;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
-
-const StyledInput = styled.input.attrs({
-  type: "text",
-})`
-  width: 97%;
-  height: 40px;
-  text-indent: 10px;
-  border: 2px solid #e0e0e0;
-  &:focus {
-    outline: none;
-  }
-`;
-
+/**
+ * This component lets users select the categories of items they wish to see
+ */
 function CategorySelector({
   categories,
   type,
@@ -60,7 +42,7 @@ function CategorySelector({
             const category = (
               <div key={item?.name}>
                 <HorizontallyStraightBox key={item?.name}>
-                  <input
+                  <CustomCheckBox
                     type="checkbox"
                     id={item?.name}
                     checked={checked}
@@ -102,5 +84,20 @@ function CategorySelector({
     </div>
   );
 }
+
+CategorySelector.propTypes = {
+  /** List categories to select from*/
+  categories: PropTypes.array,
+  /** Selector type (tag or brand)*/
+  type: PropTypes.string,
+  /** Title of selector box*/
+  title: PropTypes.string,
+  /** Existing filters that may have been selected*/
+  filters: PropTypes.array,
+  /** Function to update filters*/
+  updateFilters: PropTypes.func,
+  /** Whether it should be a mobile/desktop view*/
+  mobile: PropTypes.bool,
+};
 
 export default CategorySelector;

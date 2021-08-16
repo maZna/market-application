@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Card from "../Card";
 import {
   FilterTag,
@@ -6,7 +7,11 @@ import {
   HorizontallyStraightBox,
 } from "../../styles/index";
 import { SORT_DIRECTIONS, SORT_PROPERTIES } from "../../utils/enums";
+import CustomRadio from "../CustomRadio";
 
+/**
+ * This component allows users to select the sorting type and order for the items
+ */
 function SortSelector({
   sortProperty,
   sortDirection,
@@ -18,7 +23,7 @@ function SortSelector({
       {!mobile ? <FilterTag>Sorting</FilterTag> : null}
       <Card>
         <HorizontallyStraightBox>
-          <input
+          <CustomRadio
             id="lowToHigh"
             type="radio"
             name={!mobile ? "sorter" : "sorterMobile"}
@@ -35,7 +40,7 @@ function SortSelector({
         </HorizontallyStraightBox>
         <SizedBox height={10} />
         <HorizontallyStraightBox>
-          <input
+          <CustomRadio
             id="highToLow"
             type="radio"
             name={!mobile ? "sorter" : "sorterMobile"}
@@ -52,7 +57,7 @@ function SortSelector({
         </HorizontallyStraightBox>
         <SizedBox height={10} />
         <HorizontallyStraightBox>
-          <input
+          <CustomRadio
             id="newToOld"
             type="radio"
             name={!mobile ? "sorter" : "sorterMobile"}
@@ -69,7 +74,7 @@ function SortSelector({
         </HorizontallyStraightBox>
         <SizedBox height={10} />
         <HorizontallyStraightBox>
-          <input
+          <CustomRadio
             id="oldToNew"
             type="radio"
             name={!mobile ? "sorter" : "sorterMobile"}
@@ -88,5 +93,16 @@ function SortSelector({
     </div>
   );
 }
+
+SortSelector.propTypes = {
+  /** Determines which property to sort items by (price/date added)*/
+  sortProperty: PropTypes.string,
+  /** Determines direction of sorting (asc/desc)*/
+  sortDirection: PropTypes.string,
+  /** Function to update existing sort properties*/
+  setSortProperties: PropTypes.func,
+  /** Whether it should be a mobile/desktop view*/
+  mobile: PropTypes.bool,
+};
 
 export default SortSelector;

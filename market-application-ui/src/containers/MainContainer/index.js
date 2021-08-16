@@ -1,4 +1,5 @@
 import React, { memo, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { createStructuredSelector } from "reselect";
@@ -56,6 +57,9 @@ import Modal from "../../components/Modal";
 import { useState } from "react";
 import { Dropdown } from "../../styles";
 
+/**
+ * This is the main state container of the application. It is responsible for delegating global state to different components
+ */
 function MainContainer({
   itemData,
   itemLoading,
@@ -76,27 +80,19 @@ function MainContainer({
   cartTotal,
   dispatch,
 }) {
-  console.log(itemError, companyError, tagError);
-  console.log(cartItems, cartTotal);
-  console.log(itemData);
-
   useEffect(() => {
-    console.log("First load for items");
     if (!itemData) loadMugs();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("First load for companies");
     if (!companyData) dispatch(loadCompanies());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("First load for tags");
     if (!tagData) dispatch(loadTags());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("page/category changed");
     if (itemData?.itemList) {
       if (currentCategory === PRODUCT_CATEGORIES.MUG) loadMugs();
       else if (currentCategory === PRODUCT_CATEGORIES.SHIRT) loadShirts();
@@ -104,7 +100,6 @@ function MainContainer({
   }, [currentCategory, currentPage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("sort prop/dir changed");
     if (itemData?.itemList) {
       dispatch(
         loadItems(
@@ -120,7 +115,6 @@ function MainContainer({
   }, [sortProperty, sortDirection]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("brand/tag filters changed");
     if (itemData?.itemList) {
       dispatch(
         loadItems(
@@ -338,6 +332,45 @@ function MainContainer({
     </>
   );
 }
+
+MainContainer.propTypes = {
+  /** Object containing item list and page count*/
+  itemData: PropTypes.object,
+  /** Boolean to determine whether itemData is still loading*/
+  itemLoading: PropTypes.bool,
+  /** Object containing error related to loading itemData*/
+  itemError: PropTypes.object,
+  /** Object containing company list and count*/
+  companyData: PropTypes.object,
+  /** Boolean to determine whether companyData is still loading*/
+  companyLoading: PropTypes.bool,
+  /** Object containing error related to loading companyData*/
+  companyError: PropTypes.object,
+  /** Object containing tag list and count*/
+  tagData: PropTypes.object,
+  /** Boolean to determine whether tag is still loading*/
+  tagLoading: PropTypes.bool,
+  /** Object containing error related to loading tagData*/
+  tagError: PropTypes.object,
+  /** Current page on which user is navigating*/
+  currentPage: PropTypes.number,
+  /** Current category on which user is navigating (mug/shirt)*/
+  currentCategory: PropTypes.string,
+  /** Determines which property to sort items by (price/date added) */
+  sortProperty: PropTypes.string,
+  /** Determines direction of sorting (asc/desc)*/
+  sortDirection: PropTypes.string,
+  /** Filters to load items by brand*/
+  brandFilters: PropTypes.array,
+  /** Filters to load items by tag*/
+  tagFilters: PropTypes.array,
+  /** Contains the total cost of items in cart*/
+  cartTotal: PropTypes.number,
+  /** Contains the current items present in the cart*/
+  cartItems: PropTypes.array,
+  /** The redux dispatch function*/
+  dispatch: PropTypes.func,
+};
 
 const mapDispatchToProps = (dispatch) => ({
   dispatch,
