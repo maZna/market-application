@@ -1,6 +1,7 @@
 import produce from "immer";
 import {
   CART_ACTIONS,
+  PRODUCT_CATEGORIES,
   SORT_DIRECTIONS,
   SORT_PROPERTIES,
 } from "../../../utils/enums";
@@ -21,6 +22,7 @@ import {
   SET_SORT_PROPERTIES,
   SET_TAG_FILTERS,
 } from "./constants";
+import { getRandomMug, getRandomShirt } from "../../../resources/img/img";
 
 export const initialState = {
   itemData: null,
@@ -55,7 +57,14 @@ const itemReducer = (state = initialState, action) =>
         break;
       case LOAD_ITEMS_SUCCESS:
         draft.itemData = {
-          itemList: action.itemResult,
+          itemList: action.itemResult.map((item) => ({
+            ...item,
+            // arbitrary logic for generating image template
+            img:
+              item.itemType === PRODUCT_CATEGORIES.MUG
+                ? getRandomMug(item.tags.length)
+                : getRandomShirt(item.tags.length),
+          })),
           pageCount: action.totalPages,
         };
 

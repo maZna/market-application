@@ -13,13 +13,15 @@ import { PriceTag } from "../../styles/index";
 /**
  * This component defined the view for a single product item in the product list
  */
-function ProductItem({ price, title, addToCart, addedToCart }) {
+function ProductItem({ img, price, title, addToCart, addedToCart }) {
   return (
     <CustomSizedBox width={130} height={235}>
       <FlexDivider>
         <div>
           <PictureFrame>
-            <PictureTemplate />
+            <PictureTemplate>
+              <img src={img} alt="mug" />
+            </PictureTemplate>
           </PictureFrame>
           <PriceTag>₺ {price}</PriceTag>
           <ProductTitle>{title}</ProductTitle>

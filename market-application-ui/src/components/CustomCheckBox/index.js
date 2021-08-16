@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classes from "./index.module.css";
 
 /**
- * A customized checkbox based on the designs. 
+ * A customized checkbox based on the designs.
  * Due to its complex css, CSSModules were used instead of styled components
  */
 function CustomCheckBox({ id, checked, disabled, onChange }) {
@@ -17,7 +17,7 @@ function CustomCheckBox({ id, checked, disabled, onChange }) {
           disabled={disabled}
           onChange={onChange}
         />
-        <label for={id}></label>
+        <label htmlFor={id}></label>
       </div>
     </div>
   );

@@ -31,6 +31,7 @@ function ProductList({ itemList, updateCart }) {
             {row.map((col, colIndex) => (
               <ProductItem
                 key={colIndex}
+                img={col.img}
                 price={col.price}
                 title={col.name}
                 addedToCart={col?.addedToCart}
@@ -46,9 +47,9 @@ function ProductList({ itemList, updateCart }) {
 
 ProductList.propTypes = {
   /** List of available items (for current page)*/
-  itemList: PropTypes.array, 
+  itemList: PropTypes.array,
   /** Function to update cart items*/
-  updateCart: PropTypes.func, 
+  updateCart: PropTypes.func,
 };
 
 export default ProductList;

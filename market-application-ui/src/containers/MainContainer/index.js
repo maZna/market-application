@@ -308,19 +308,21 @@ function MainContainer({
               </FilterButton>
             </SmallDeviceView>
           </div>
-          <ProductOverview
-            productList={itemData?.itemList}
-            productCategory={currentCategory}
-            setCategoryAsShirts={setCategoryAsShirts}
-            setCategoryAsMugs={setCategoryAsMugs}
-            updateCart={updateCart}
-          />
           {itemData?.itemList ? (
-            <Paginator
-              currentPage={currentPage}
-              updatePage={updatePage}
-              totalPages={itemData?.pageCount}
-            />
+            <>
+              <ProductOverview
+                productList={itemData?.itemList}
+                productCategory={currentCategory}
+                setCategoryAsShirts={setCategoryAsShirts}
+                setCategoryAsMugs={setCategoryAsMugs}
+                updateCart={updateCart}
+              />
+              <Paginator
+                currentPage={currentPage}
+                updatePage={updatePage}
+                totalPages={itemData?.pageCount}
+              />
+            </>
           ) : null}
         </div>
       </Main>

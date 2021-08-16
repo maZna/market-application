@@ -13,7 +13,10 @@ export const PictureFrame = styled.div`
 export const PictureTemplate = styled.div`
   width: 97px;
   height: 100px;
-  background-color: #c4c4c4;
+  & img {
+    width: inherit;
+    height: inherit;
+  }
 `;
 
 /**@component */

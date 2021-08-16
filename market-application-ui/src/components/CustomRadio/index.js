@@ -4,14 +4,19 @@ import classes from "./index.module.css";
 import logos from "../../resources/img/img";
 
 /**
- * A customized radio button based on the designs. 
+ * A customized radio button based on the designs.
  * Due to its complex css, CSSModules were used instead of styled components
  */
 function CustomRadio({ id, name, checked, onChange }) {
   return (
     <div className={classes.CustomRadio} onClick={onChange}>
       <div>
-        <input type="radio" id={id} name={name} checked={checked} />
+        <input
+          type="radio"
+          id={id}
+          name={name}
+          checked={checked}
+        />
         <label htmlFor="color">
           <span>
             <img src={logos.tick} alt="Checked Icon" />
