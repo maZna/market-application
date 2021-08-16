@@ -55,7 +55,7 @@ import { CATEGORY_TYPES, PRODUCT_CATEGORIES } from "../../utils/enums";
 import Cart from "../../components/Cart";
 import Modal from "../../components/Modal";
 import { useState } from "react";
-import { Dropdown } from "../../styles";
+import { Dropdown, ErrorMessage } from "../../styles";
 
 /**
  * This is the main state container of the application. It is responsible for delegating global state to different components
@@ -242,6 +242,11 @@ function MainContainer({
   return (
     <>
       {itemLoading ? <Loader /> : null}
+      {itemError || companyError || tagError ? (
+        <Modal open={true} header="Error" toggle={null}>
+          <ErrorMessage>An error occurred while loading items!</ErrorMessage>
+        </Modal>
+      ) : null}
       {modals}
       <NavBar>
         <img src={logos.marketLogo} alt="market logo" width="100px" />
@@ -277,7 +282,7 @@ function MainContainer({
       </LeftSideBar>
       <Main>
         <div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <MobileView>
               <Dropdown>
                 <FilterButton>Filters</FilterButton>

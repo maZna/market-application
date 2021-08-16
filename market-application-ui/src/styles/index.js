@@ -52,7 +52,7 @@ export const ModalBox = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 600;
-  min-width: 200px;
+  min-width: 300px;
   width: ${(props) => props.width}
   border: 2px solid ${(props) => props.theme.main};
   border-radius: 5px;
@@ -112,4 +112,11 @@ export const CustomizedScrollBox = styled.div`
     border-radius: 10px;
     background-color: #e0e0e0;
   }
+`;
+
+export const ErrorMessage = styled.span`
+  margin: 20px 10px 20px 10px;
+  color: red;
+  font-weight: 700;
+  font-size: 16px;
 `;

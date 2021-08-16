@@ -7,7 +7,7 @@ export const RIGHT_SIDE_BAR_WIDTH = 20;
 export const RIGHT_SIDE_BAR_MARGIN = 5;
 export const VALUE_STANDARD = "%";
 
-export const RIGHT_SIDEBAR_DISPLAY_THRESHOLD = "1266px";
+export const RIGHT_SIDEBAR_DISPLAY_THRESHOLD = "1360px";
 export const SMALL_DISPLAY_THRESHOLD = "1000px";
 export const MOBILE_THRESHOLD = "660px";
 
@@ -68,7 +68,7 @@ export const Main = styled.div`
   }
   @media (max-width: ${SMALL_DISPLAY_THRESHOLD}) {
     margin: 0;
-    margin-top: 100px;
+    margin-top: ${MAIN_TOP_MARGIN};
     display: flex;
     justify-content: center;
   }

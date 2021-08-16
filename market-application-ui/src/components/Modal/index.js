@@ -12,12 +12,14 @@ function Modal({ open, header, children, toggle }) {
       <>
         <Backdrop></Backdrop>
         <ModalBox>
-          <header>{header}</header>
+          <h3>{header}</h3>
           <hr />
           <main>{children}</main>
-          <footer>
-            <ModalButton onClick={toggle}>Close</ModalButton>
-          </footer>
+          {toggle ? (
+            <footer>
+              <ModalButton onClick={toggle}>Close</ModalButton>
+            </footer>
+          ) : null}
         </ModalBox>
       </>
     );
