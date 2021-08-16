@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+ backend: 
+  build: ./market-application-backend
+  ports:
+   - 8081:8081
+ frontend:
+  build: ./market-application-ui
+  volumes:
+   - ./market-application-ui:/app
+   - f-volume:/app/node_modules
+  ports:
+   - 3000:3000
+volumes:
+ f-volume:

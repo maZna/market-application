@@ -1,0 +1,28 @@
+body {
+  background-color: #fafafa;
+  font-family: OpenSansReg;
+  font-size: 13px;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: OpenSansReg;
+  src: url(./resources/fonts/OpenSans-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: OpenSansBold;
+  src: url(./resources/fonts/OpenSans-Bold.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: OpenSansExtraBold;
+  src: url(./resources/fonts/OpenSans-ExtraBold.ttf) format("opentype");
+}
