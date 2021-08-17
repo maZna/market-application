@@ -4,6 +4,8 @@
 
 A React and Redux based web interface for categorizing shopping products. Users can use this application to view, sort and categorize various products as they wish. This application use the **React** library for its user interface, **Redux** for state management, **Redux-Saga** for side-effect management and a customized version of [**json-server**](https://github.com/typicode/json-server) as a placeholder backend.
 
+A working demo of the application can be accessed [here](http://market-application.herokuapp.com/).
+
 ### Requirements
 
 In order to run the application locally, the following tools must be installed and ready:
