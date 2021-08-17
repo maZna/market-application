@@ -17,7 +17,7 @@ Docker and Docker Compose need to be setup on the host machine in order to run t
 
 ### Running the Service
 
-## Using Docker
+#### Using Docker
 
 The service can be run by running the following command in the terminal:
 
@@ -41,9 +41,9 @@ Once running, the application interface can be accessed at http://localhost:3000
 
 Its as simple as this! :smile:
 
-## Using NPM
+#### Using NPM
 
-In order to run the service without Docker, the service can be run by calling ```npm install``` in both subdirectories followed by ```npm run start```;
+In order to run the application without Docker, the application can be run by calling ```npm install``` in each subdirectory  followed by ```npm run start```.
 
 ### Documentation
 
