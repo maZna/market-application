@@ -16,6 +16,7 @@ function CustomRadio({ id, name, checked, onChange }) {
           id={id}
           name={name}
           checked={checked}
+          onChange={onChange}
         />
         <label htmlFor="color">
           <span>

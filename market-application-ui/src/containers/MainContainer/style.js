@@ -7,8 +7,7 @@ export const RIGHT_SIDE_BAR_WIDTH = 20;
 export const RIGHT_SIDE_BAR_MARGIN = 5;
 export const VALUE_STANDARD = "%";
 
-export const RIGHT_SIDEBAR_DISPLAY_THRESHOLD = "1360px";
-export const SMALL_DISPLAY_THRESHOLD = "1000px";
+export const SMALL_DISPLAY_THRESHOLD = "1360px";
 export const MOBILE_THRESHOLD = "660px";
 
 export const NAVBAR_HEIGHT = "50px";
@@ -40,7 +39,7 @@ export const RightSideBar = styled.div`
   margin-right: ${RIGHT_SIDE_BAR_MARGIN + VALUE_STANDARD};
   margin-top: ${BODY_TOP_MARGIN};
   display: inline-block;
-  @media (max-width: ${RIGHT_SIDEBAR_DISPLAY_THRESHOLD}) {
+  @media (max-width: ${SMALL_DISPLAY_THRESHOLD}) {
     display: none;
   }
 `;
@@ -59,15 +58,7 @@ export const Main = styled.div`
   justify-content: center;
   @media (max-width: ${MOBILE_THRESHOLD}) {
     margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-  }
-  @media (max-width: ${SMALL_DISPLAY_THRESHOLD}) {
-    margin: 0;
+    position: relative;
     margin-top: ${MAIN_TOP_MARGIN};
     display: flex;
     justify-content: center;
@@ -118,15 +109,6 @@ export const NavPriceTag = styled(PriceTag)`
 /**@component */
 export const SmallDeviceView = styled.div`
   display: none;
-  @media (max-width: ${RIGHT_SIDEBAR_DISPLAY_THRESHOLD}) {
-    display: flex;
-    justify-content: flex-end;
-  }
-`;
-
-/**@component */
-export const MobileView = styled.div`
-  display: none;
   @media (max-width: ${SMALL_DISPLAY_THRESHOLD}) {
     display: flex;
     justify-content: flex-end;
@@ -144,10 +126,18 @@ export const FilterButton = styled(PageButton)`
 /**@component */
 export const Footer = styled.div`
   color: ${(props) => props.theme.main};
-  position: relative;
+  position: ${(props) => (props.noItems ? "absolute" : "relative")};
+  margin-top: ${MAIN_TOP_MARGIN};
   bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+/**@component */
+export const NotFoundMessage = styled(PriceTag)`
+  font-size: 24px;
+  font-weight: bolder;
+  margin-top: 100px;
 `;

@@ -19,7 +19,7 @@ export const OpaqueBox = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index-998;
+  z-index: 400;
 `;
 
 export const LoaderBox = styled.div`
@@ -28,7 +28,7 @@ export const LoaderBox = styled.div`
   left: 50%;
   margin-left: -50px;
   margin-top: -50px;
-  z-index: 999;
+  z-index: 401;
 
   div {
     box-sizing: border-box;

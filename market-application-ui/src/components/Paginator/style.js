@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { PageButton } from '../../styles/index';
+import { PageButton } from "../../styles/index";
 
 /**@component */
 export const PaginatorContainer = styled.div`
   margin-top: 20px;
-  margin-bottom: 100px;
   display: flex;
   justify-content: space-around;
 `;
@@ -16,12 +15,12 @@ export const SlideButton = styled(PageButton)`
     color: grey;
   }
   &.first:hover {
-    background: none
+    background: none;
   }
   &.last {
     color: grey;
   }
   &.last:hover {
-    background: none
+    background: none;
   }
 `;

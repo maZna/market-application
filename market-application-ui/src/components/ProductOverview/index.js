@@ -6,7 +6,7 @@ import ProductList from "../ProductList";
 import { ProductsTitle, Tab } from "./styles";
 
 /**
- * This component controls the display of product items and their types 
+ * This component controls the display of product items and their types
  */
 function ProductOverview({
   productList,

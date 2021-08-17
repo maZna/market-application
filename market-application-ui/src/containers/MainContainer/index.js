@@ -44,10 +44,10 @@ import {
   RightSideBar,
   Main,
   NavPriceTag,
-  MobileView,
   SmallDeviceView,
   FilterButton,
   Footer,
+  NotFoundMessage,
 } from "./style";
 import Loader from "../../components/Loader";
 import Paginator from "../../components/Paginator";
@@ -283,7 +283,7 @@ function MainContainer({
       <Main>
         <div>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <MobileView>
+            <SmallDeviceView>
               <Dropdown>
                 <FilterButton>Filters</FilterButton>
                 <div>
@@ -301,14 +301,12 @@ function MainContainer({
                 </div>
                 &nbsp;
               </Dropdown>
-            </MobileView>
-            <SmallDeviceView>
               <FilterButton onClick={() => setCartOpen(true)}>
                 Cart
               </FilterButton>
             </SmallDeviceView>
           </div>
-          {itemData?.itemList ? (
+          {itemData?.itemList && itemData?.itemList.length > 0 ? (
             <>
               <ProductOverview
                 productList={itemData?.itemList}
@@ -323,7 +321,9 @@ function MainContainer({
                 totalPages={itemData?.pageCount}
               />
             </>
-          ) : null}
+          ) : (
+            <NotFoundMessage>Products not found!</NotFoundMessage>
+          )}
         </div>
       </Main>
       <RightSideBar>
@@ -333,7 +333,7 @@ function MainContainer({
           cartTotal={cartTotal}
         />
       </RightSideBar>
-      <Footer>
+      <Footer noItems={itemData?.itemList?.length === 0}>
         Ⓒ 2019 Market&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;Privacy Policy
       </Footer>
     </>
